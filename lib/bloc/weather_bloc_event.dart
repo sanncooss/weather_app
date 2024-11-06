@@ -1,16 +1,16 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
-// @sealed
 abstract class WeatherBlocEvent extends Equatable {
   const WeatherBlocEvent();
 }
 
-// Define FetchWeather as a subclass of WeatherBlocEvent
 class FetchWeather extends WeatherBlocEvent {
-  final String cityName;
+  final Position position;
 
-  FetchWeather({required this.cityName});
-
+  const FetchWeather({required this.position});
+  
   @override
-  List<Object?> get props => [cityName];
+  List<Object?> get props => [position];
 }
